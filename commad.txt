@@ -1,0 +1,7 @@
+python train.py --weights weights/yolov5n-seg.pt --cfg models/yolov5n-seg.yaml --data data/custom.yaml --hyp data/hyps/hyp.scratch-low.yaml \
+    --epochs 100 --batch-size 16 --device 0 --workers 4 --name shape_yolov5n
+
+python val.py --weights runs/train-seg/shape_yolov5n/weights/best.pt --data data/custom.yaml --batch-size 16 --device 0 --name shape_yolov5n
+
+python detect.py --weights runs/train-seg/shape_yolov5n/weights/best.pt --source dataset/custom_dataset/images/test --data data/custom.yaml \
+    --device 0 --name shape_yolov5n
